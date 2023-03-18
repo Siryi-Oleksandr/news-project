@@ -4,7 +4,7 @@ import { lazy } from 'react';
 // import PropTypes from 'prop-types';
 import { Container } from './App.styled';
 import GlobalStyle from 'GlobalStyle';
-import Navigation from 'components/Navigation';
+import Navigation from 'components/SharedLayout';
 import { Toaster } from 'react-hot-toast';
 
 const Home = lazy(() => import('pages/Home'));

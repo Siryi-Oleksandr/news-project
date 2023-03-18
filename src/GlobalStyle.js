@@ -49,7 +49,7 @@ body {
   margin: 0;
   padding-top: 15px;
   font-family: 'Manrope', 'Roboto', 'Poppins', sans-serif;
-
+color: #111321;
   background-color: #ccc;
 }
 
