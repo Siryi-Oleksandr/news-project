@@ -12,8 +12,9 @@ import {
 } from './SharedLayout.styled';
 import Loader from 'components/Loader';
 import Footer from 'components/Footer';
+import Checkbox from 'components/Checkbox/Checkbox';
 
-function Navigation() {
+function SharedLayout({ toggleTheme }) {
   return (
     <>
       <Header>
@@ -29,6 +30,7 @@ function Navigation() {
             <FcSearch size="1.5em" />
           </SearchBtn>
         </Form>
+        <Checkbox toggleTheme={toggleTheme} />
       </Header>
       <main>
         <Suspense fallback={<Loader />}>
@@ -41,4 +43,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default SharedLayout;

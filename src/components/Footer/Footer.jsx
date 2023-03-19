@@ -3,7 +3,11 @@ import React from 'react';
 import { FooterStyled } from './Footer.styled';
 
 function Footer(props) {
-  return <FooterStyled></FooterStyled>;
+  return (
+    <FooterStyled>
+      <p>&#169; Produced by Oleksandr Siryi</p>
+    </FooterStyled>
+  );
 }
 
 Footer.propTypes = {};

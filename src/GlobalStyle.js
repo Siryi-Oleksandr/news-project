@@ -51,7 +51,14 @@ body {
   font-family: 'Manrope', 'Roboto', 'Poppins', sans-serif;
 color: #111321;
   background-color: #ccc;
+
+  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+
+  background-color: ${({ theme }) => theme.backgroundColor};
+    color: ${({ theme }) => theme.textColor};
 }
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
