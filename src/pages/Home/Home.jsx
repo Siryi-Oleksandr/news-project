@@ -1,9 +1,10 @@
 import ArticlesList from 'components/ArticlesList';
+import Loader from 'components/Loader';
 import React, { useState, useEffect } from 'react';
 
 import * as API from '../../services/newsAPI';
 
-function Home(props) {
+function Home({ onAddArticle, onDeleteArticle }) {
   const [recentArticles, setRecentArticle] = useState([]);
 
   useEffect(() => {
@@ -24,9 +25,17 @@ function Home(props) {
     //   });
   }, []);
 
+  if (recentArticles.length === 0) {
+    return <Loader />;
+  }
+
   return (
     <div>
-      <ArticlesList articles={recentArticles} />
+      <ArticlesList
+        articles={recentArticles}
+        onAddArticle={onAddArticle}
+        onDeleteArticle={onDeleteArticle}
+      />
     </div>
   );
 }

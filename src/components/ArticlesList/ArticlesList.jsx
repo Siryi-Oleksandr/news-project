@@ -1,63 +1,37 @@
-import { NavLink, useLocation } from 'react-router-dom';
-import { List, Item, ImgWrapper, InfoWrapper } from './ArticlesList.styled';
+import { List, Item } from './ArticlesList.styled';
 import PropTypes from 'prop-types';
-// import defaultImg from '../../images/movie-pic.jpg';
+import Article from 'components/Article';
 
-function ArticlesList({ articles }) {
+function ArticlesList({ articles, onAddArticle, onDeleteArticle }) {
   return (
     <List>
-      {articles.map(
-        ({
-          id,
-          url,
-          abstract,
-          title,
-          section,
-          subsection,
-          published_date,
-          media,
-        }) => {
-          // const mediaUrl = media[0].media - metadata[2].url;
-          // console.log(mediaUrl);
-          return (
-            <li key={id}>
-              <article>
-                <div>
-                  <img src="" alt="" />
-                  <p>{section}</p>
-                  <button type="button">Add to favorite</button>
-                </div>
-              </article>
-              <div>
-                <h2>{title}</h2>
-                <p>{abstract}</p>
-              </div>
-              <div>
-                <span>{published_date}</span>
-
-                <a target="_blank" rel="noreferrer" href={url}>
-                  Read more
-                </a>
-              </div>
-            </li>
-          );
-        }
-      )}
+      {articles.map(article => {
+        return (
+          <Item key={article.id}>
+            <Article
+              article={article}
+              onAddArticle={onAddArticle}
+              onDeleteArticle={onDeleteArticle}
+            />
+          </Item>
+        );
+      })}
     </List>
   );
 }
 
-// ArticlesList.propTypes = {
-//   movies: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       poster_path: PropTypes.string,
-//       name: PropTypes.string,
-//       original_title: PropTypes.string,
-//       vote_average: PropTypes.number,
-//       vote_count: PropTypes.number,
-//     })
-//   ).isRequired,
-// };
+ArticlesList.propTypes = {
+  articles: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      url: PropTypes.string.isRequired,
+      abstract: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      section: PropTypes.string.isRequired,
+      published_date: PropTypes.string.isRequired,
+      media: PropTypes.array,
+    })
+  ).isRequired,
+};
 
 export default ArticlesList;

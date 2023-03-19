@@ -1,8 +1,13 @@
+import ArticlesList from 'components/ArticlesList';
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-function Favorite(props) {
-  return <div>Favorite</div>;
+function Favorite({ favoriteArticles }) {
+  return (
+    <div>
+      <ArticlesList articles={favoriteArticles} />
+    </div>
+  );
 }
 
 Favorite.propTypes = {};
