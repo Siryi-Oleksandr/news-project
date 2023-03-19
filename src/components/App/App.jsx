@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
@@ -7,15 +7,17 @@ import { Container } from './App.styled';
 import GlobalStyle from 'GlobalStyle';
 import SharedLayout from 'components/SharedLayout';
 import { Toaster } from 'react-hot-toast';
-// import ThemeProvider from 'components/ThemeProvider/ThemeProvider';
 import { lightTheme, darkTheme } from '../../styles/theme';
+import useLocaleStorage from '../../hooks/useLocaleStorage';
 
 const Home = lazy(() => import('pages/Home'));
 const Read = lazy(() => import('pages/Read'));
 const Favorite = lazy(() => import('pages/Favorite'));
 
+const LS_KEY_THEME = 'userTheme';
+
 function App() {
-  const [theme, setTheme] = useState(lightTheme);
+  const [theme, setTheme] = useLocaleStorage(LS_KEY_THEME, lightTheme);
 
   function toggleTheme() {
     setTheme(theme === lightTheme ? darkTheme : lightTheme);

@@ -74,10 +74,13 @@ export const Input = styled.input`
   line-height: calc(24 / 14);
   letter-spacing: 0.02em;
   color: ${textColor};
-  border: 1px solid ${textColor};
+  border: 1px solid ${({ theme }) => theme.borderColor};
+  /* border-color: ${({ theme }) => theme.borderColor}; */
   border-radius: 20px;
   background: none;
   outline: none;
+
+  transition: border 250ms ease-in-out;
 
   &::placeholder {
     font-family: 'Poppins';

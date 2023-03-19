@@ -1,15 +1,12 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import { FooterStyled } from './Footer.styled';
 
-function Footer(props) {
+function Footer() {
   return (
     <FooterStyled>
-      <p>&#169; Produced by Oleksandr Siryi</p>
+      <p>&#169; Created by Oleksandr Siryi</p>
     </FooterStyled>
   );
 }
-
-Footer.propTypes = {};
 
 export default Footer;

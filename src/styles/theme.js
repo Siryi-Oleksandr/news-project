@@ -1,9 +1,13 @@
+import { textColor } from './colors';
+
 export const lightTheme = {
-  backgroundColor: '#fff',
-  textColor: '#000',
+  backgroundColor: '#f4f4f4',
+  textColor,
+  borderColor: textColor,
 };
 
 export const darkTheme = {
   backgroundColor: '#333',
-  textColor: '#fff',
+  textColor: '#f4f4f4',
+  borderColor: '#f4f4f4',
 };
