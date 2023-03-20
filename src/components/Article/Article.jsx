@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
+import localeContext from '../../context/localeContext';
 import PropTypes from 'prop-types';
 import {
   ArtCategory,
@@ -13,7 +14,6 @@ import {
 } from './Article.styled';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { accentColor } from '../../styles/colors';
-import { useState } from 'react';
 import defaultImage from '../../images/not-article.png';
 
 const LS_KEY_FAVORITE_ARTICLES = 'favorite_articles';
@@ -28,20 +28,23 @@ function checkFavoriteArticle(id) {
   return false;
 }
 
-function Article({ article, onAddArticle, onDeleteArticle }) {
+function Article({ article }) {
   const { id, url, abstract, title, section, published_date, media } = article;
 
   const [isFavoriteArticle, setIsFavoriteArticle] = useState(() =>
     checkFavoriteArticle(id)
   );
+  // get locale storage context with methods
+  const LS_Context = useContext(localeContext);
+  const { addToFavoriteArticle, deleteArticle } = LS_Context;
 
   const handleAddToFavorite = () => {
-    onAddArticle(article);
+    addToFavoriteArticle(article);
     setIsFavoriteArticle(true);
   };
 
   const handleDeleteFromFavorite = () => {
-    onDeleteArticle(id);
+    deleteArticle(id);
     setIsFavoriteArticle(false);
   };
 

@@ -5,21 +5,17 @@ import React from 'react';
 import { useContext } from 'react';
 import localeContext from '../../context/localeContext';
 
-function Favorite({ favoriteArticles, onAddArticle, onDeleteArticle }) {
+function Favorite() {
+  const LS_Context = useContext(localeContext);
+  const { favoriteArticles } = LS_Context;
   const isNotArticles = favoriteArticles.length === 0;
-  const ctx = useContext(localeContext);
-  console.log(ctx);
 
   return (
     <div>
       {isNotArticles ? (
         <NotArticles />
       ) : (
-        <ArticlesList
-          articles={favoriteArticles}
-          onAddArticle={onAddArticle}
-          onDeleteArticle={onDeleteArticle}
-        />
+        <ArticlesList articles={favoriteArticles} />
       )}
     </div>
   );

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 import * as API from '../../services/newsAPI';
 
-function Home({ onAddArticle, onDeleteArticle }) {
+function Home() {
   const [recentArticles, setRecentArticle] = useState([]);
 
   useEffect(() => {
@@ -31,11 +31,7 @@ function Home({ onAddArticle, onDeleteArticle }) {
 
   return (
     <div>
-      <ArticlesList
-        articles={recentArticles}
-        onAddArticle={onAddArticle}
-        onDeleteArticle={onDeleteArticle}
-      />
+      <ArticlesList articles={recentArticles} />
     </div>
   );
 }

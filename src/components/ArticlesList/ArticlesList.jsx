@@ -2,17 +2,13 @@ import { List, Item } from './ArticlesList.styled';
 import PropTypes from 'prop-types';
 import Article from 'components/Article';
 
-function ArticlesList({ articles, onAddArticle, onDeleteArticle }) {
+function ArticlesList({ articles }) {
   return (
     <List>
       {articles.map(article => {
         return (
           <Item key={article.id}>
-            <Article
-              article={article}
-              onAddArticle={onAddArticle}
-              onDeleteArticle={onDeleteArticle}
-            />
+            <Article article={article} />
           </Item>
         );
       })}
