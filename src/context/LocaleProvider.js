@@ -1,6 +1,7 @@
 import localeContext from './localeContext';
 import React from 'react';
 import useLocaleStorage from 'hooks/useLocaleStorage';
+import { addLeadingZero } from '../services/dataService';
 
 const LS_KEY_FAVORITE_ARTICLES = 'favorite_articles';
 const LS_KEY_READ_ARTICLES = 'read_articles';
@@ -21,9 +22,18 @@ function LocaleProvider({ children }) {
 
   const addToReadArticle = newArticle => {
     const date = new Date();
-    const readDate = date.toLocaleString();
+    const year = date.getFullYear();
+    const month = addLeadingZero(date.getMonth() + 1);
+    const number = addLeadingZero(date.getDate());
+    const readDate = `${number}/${month}/${year}`;
     const articleWithDate = { ...newArticle, readDate };
-    setReadArticles(prevArticles => [...prevArticles, articleWithDate]);
+    //   check if current article is in collection then delete it and after add current article with new reading data
+    setReadArticles(prevArticles => {
+      const filteredArticles = prevArticles.filter(
+        article => article.id !== newArticle.id
+      );
+      return [...filteredArticles, articleWithDate];
+    });
   };
 
   const deleteArticle = articleId => {

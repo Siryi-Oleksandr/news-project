@@ -100,3 +100,12 @@ export const ArtMoreInfoLink = styled.a`
 
   color: ${accentColor};
 `;
+
+export const BtnReadMore = styled.button`
+  text-decoration: underline;
+  cursor: pointer;
+  color: ${accentColor};
+  background-color: transparent;
+  border: none;
+  outline: none;
+`;

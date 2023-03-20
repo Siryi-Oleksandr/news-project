@@ -9,6 +9,7 @@ import {
   ArtMoreInfoWrapper,
   ArtTitle,
   BtnAddToFavorite,
+  BtnReadMore,
   ImgWrapper,
   InfoWrapper,
 } from './Article.styled';
@@ -18,25 +19,29 @@ import defaultImage from '../../images/not-article.png';
 
 const LS_KEY_FAVORITE_ARTICLES = 'favorite_articles';
 
-function checkFavoriteArticle(id) {
-  const savedArticles = JSON.parse(
-    window.localStorage.getItem(LS_KEY_FAVORITE_ARTICLES)
-  );
-  if (savedArticles) {
-    return savedArticles.some(article => article.id === id);
-  }
-  return false;
-}
-
 function Article({ article }) {
   const { id, url, abstract, title, section, published_date, media } = article;
 
+  // get locale storage context with methods
+  const LS_Context = useContext(localeContext);
+  const {
+    addToFavoriteArticle,
+    deleteArticle,
+    addToReadArticle,
+    readArticles,
+  } = LS_Context;
+
+  // useStates
   const [isFavoriteArticle, setIsFavoriteArticle] = useState(() =>
     checkFavoriteArticle(id)
   );
-  // get locale storage context with methods
-  const LS_Context = useContext(localeContext);
-  const { addToFavoriteArticle, deleteArticle, addToReadArticle } = LS_Context;
+
+  //   Read logic (now nowhere used)
+  // const [isReadArticle, setIsReadArticle] = useState(() =>
+  //   checkReadArticle(readArticles, id)
+  // );
+
+  // Functions
 
   const handleAddToFavorite = () => {
     addToFavoriteArticle(article);
@@ -46,6 +51,10 @@ function Article({ article }) {
   const handleDeleteFromFavorite = () => {
     deleteArticle(id);
     setIsFavoriteArticle(false);
+  };
+  // TODO  Read logic
+  const handleAddToRead = () => {
+    addToReadArticle(article);
   };
 
   const imageUrl =
@@ -80,13 +89,28 @@ function Article({ article }) {
         <ArtDate>{published_date}</ArtDate>
 
         <ArtMoreInfoLink target="_blank" rel="noreferrer" href={url}>
-          <button type="button" onClick={() => addToReadArticle(article)}>
+          <BtnReadMore type="button" onClick={handleAddToRead}>
             Read more
-          </button>
+          </BtnReadMore>
         </ArtMoreInfoLink>
       </ArtMoreInfoWrapper>
     </article>
   );
+}
+
+// Helpers functions
+function checkFavoriteArticle(id) {
+  const savedArticles = JSON.parse(
+    window.localStorage.getItem(LS_KEY_FAVORITE_ARTICLES)
+  );
+  if (savedArticles) {
+    return savedArticles.some(article => article.id === id);
+  }
+  return false;
+}
+function checkReadArticle(articles, articleId) {
+  const isUnique = articles.some(article => article.id !== articleId);
+  return isUnique;
 }
 
 Article.propTypes = {
