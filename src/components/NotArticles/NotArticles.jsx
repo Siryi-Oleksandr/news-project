@@ -4,7 +4,7 @@ import { DefImgWrapper } from './NotArticles.styled';
 function NotArticles() {
   return (
     <DefImgWrapper>
-      <h1>You don't have any articles in this chapter</h1>
+      <h1>We haven’t found news from this category</h1>
       <img src={defaultImage} alt="Not found any articles" />
     </DefImgWrapper>
   );
