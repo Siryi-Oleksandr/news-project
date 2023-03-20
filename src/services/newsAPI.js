@@ -16,7 +16,7 @@ const agent = axios.create({
 export async function getRecentArticles() {
   try {
     const articles = await axios.get(MOST_POPULAR_NEWS);
-    console.log(articles?.data?.results);
+
     return articles?.data?.results;
   } catch (error) {
     toast.error('Something went wrong 😥!');

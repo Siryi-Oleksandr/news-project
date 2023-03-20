@@ -36,7 +36,7 @@ function Article({ article }) {
   );
   // get locale storage context with methods
   const LS_Context = useContext(localeContext);
-  const { addToFavoriteArticle, deleteArticle } = LS_Context;
+  const { addToFavoriteArticle, deleteArticle, addToReadArticle } = LS_Context;
 
   const handleAddToFavorite = () => {
     addToFavoriteArticle(article);
@@ -80,7 +80,9 @@ function Article({ article }) {
         <ArtDate>{published_date}</ArtDate>
 
         <ArtMoreInfoLink target="_blank" rel="noreferrer" href={url}>
-          Read more
+          <button type="button" onClick={() => addToReadArticle(article)}>
+            Read more
+          </button>
         </ArtMoreInfoLink>
       </ArtMoreInfoWrapper>
     </article>
