@@ -14,7 +14,7 @@ const Favorite = lazy(() => import('pages/Favorite'));
 
 const LS_KEY_THEME = 'user_theme';
 const LS_KEY_FAVORITE_ARTICLES = 'favorite_articles';
-const LS_KEY_READ_ARTICLES = 'read_articles';
+// const LS_KEY_READ_ARTICLES = 'read_articles';
 
 function App() {
   const [theme, setTheme] = useLocaleStorage(LS_KEY_THEME, lightTheme);
