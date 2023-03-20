@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
-// import PropTypes from 'prop-types';
 import { Container } from './App.styled';
 import GlobalStyle from 'GlobalStyle';
 import SharedLayout from 'components/SharedLayout';
@@ -16,6 +14,7 @@ const Favorite = lazy(() => import('pages/Favorite'));
 
 const LS_KEY_THEME = 'user_theme';
 const LS_KEY_FAVORITE_ARTICLES = 'favorite_articles';
+const LS_KEY_READ_ARTICLES = 'read_articles';
 
 function App() {
   const [theme, setTheme] = useLocaleStorage(LS_KEY_THEME, lightTheme);
@@ -54,7 +53,13 @@ function App() {
             />
             <Route
               path="/favorite"
-              element={<Favorite favoriteArticles={favoriteArticles} />}
+              element={
+                <Favorite
+                  favoriteArticles={favoriteArticles}
+                  onAddArticle={addToFavoriteArticle}
+                  onDeleteArticle={deleteArticle}
+                />
+              }
             />
             <Route path="/read" element={<Read />} />
           </Route>

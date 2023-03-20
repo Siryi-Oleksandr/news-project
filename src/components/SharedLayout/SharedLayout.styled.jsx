@@ -44,12 +44,14 @@ export const LinkStyled = styled(NavLink)`
 `;
 
 export const LinkLogo = styled(Link)`
+  font-family: 'Times New Roman';
   padding: 10px 0;
   margin-right: 102px;
-  font-weight: 700;
+  font-weight: 900;
   font-size: 24px;
   line-height: calc(33 / 24);
   display: inline-block;
+  color: ${accentColor};
 
   @media screen and (min-width: 768px) {
     font-size: 32px;

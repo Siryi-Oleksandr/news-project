@@ -3,6 +3,7 @@ import { footerColor } from '../../styles/colors';
 
 export const FooterStyled = styled.footer`
   padding-top: 24px;
+  margin-top: 30px;
   text-align: center;
   height: 146px;
   background-color: ${footerColor};

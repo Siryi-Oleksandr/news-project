@@ -14,6 +14,7 @@ import {
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { accentColor } from '../../styles/colors';
 import { useState } from 'react';
+import defaultImage from '../../images/not-article.png';
 
 const LS_KEY_FAVORITE_ARTICLES = 'favorite_articles';
 
@@ -44,17 +45,21 @@ function Article({ article, onAddArticle, onDeleteArticle }) {
     setIsFavoriteArticle(false);
   };
 
-  const imageUrl = media[0]['media-metadata'][2 ?? 1 ?? 0].url;
+  const imageUrl =
+    media.length !== 0
+      ? media[0]['media-metadata'][2 ?? 1 ?? 0].url
+      : defaultImage;
 
   return (
     <article>
       <ImgWrapper>
         <img src={imageUrl} alt={title} />
         <ArtCategory>{section}</ArtCategory>
+
         {!isFavoriteArticle ? (
           <BtnAddToFavorite type="button" onClick={handleAddToFavorite}>
             Add to favorite
-            <AiOutlineHeart size="1.5em" />
+            <AiOutlineHeart size="1.5em" fill={accentColor} />
           </BtnAddToFavorite>
         ) : (
           <BtnAddToFavorite type="button" onClick={handleDeleteFromFavorite}>
