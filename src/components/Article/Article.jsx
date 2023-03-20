@@ -24,12 +24,7 @@ function Article({ article }) {
 
   // get locale storage context with methods
   const LS_Context = useContext(localeContext);
-  const {
-    addToFavoriteArticle,
-    deleteArticle,
-    addToReadArticle,
-    readArticles,
-  } = LS_Context;
+  const { addToFavoriteArticle, deleteArticle, addToReadArticle } = LS_Context;
 
   // useStates
   const [isFavoriteArticle, setIsFavoriteArticle] = useState(() =>
@@ -108,10 +103,11 @@ function checkFavoriteArticle(id) {
   }
   return false;
 }
-function checkReadArticle(articles, articleId) {
-  const isUnique = articles.some(article => article.id !== articleId);
-  return isUnique;
-}
+
+// function checkReadArticle(articles, articleId) {
+//   const isUnique = articles.some(article => article.id !== articleId);
+//   return isUnique;
+// }
 
 Article.propTypes = {
   article: PropTypes.shape({
