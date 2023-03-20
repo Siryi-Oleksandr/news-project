@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/696.a453ff03.chunk.js","mappings":"iLASA,MANA,SAAcA,GACZ,OAAO,iCACR,C","sources":["pages/Read/Read.jsx"],"sourcesContent":["import React from 'react';\n// import PropTypes from 'prop-types';\n\nfunction Read(props) {\n  return <div>Read</div>;\n}\n\nRead.propTypes = {};\n\nexport default Read;\n"],"names":["props"],"sourceRoot":""}
