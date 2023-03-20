@@ -1,24 +1,26 @@
 {
   "files": {
     "main.css": "/news-project/static/css/main.c3d5249d.css",
-    "main.js": "/news-project/static/js/main.506a80dd.js",
-    "static/js/570.d16c3af9.chunk.js": "/news-project/static/js/570.d16c3af9.chunk.js",
-    "static/js/696.faad729f.chunk.js": "/news-project/static/js/696.faad729f.chunk.js",
-    "static/js/242.2d976449.chunk.js": "/news-project/static/js/242.2d976449.chunk.js",
+    "main.js": "/news-project/static/js/main.c34ee5fd.js",
+    "static/js/570.98d66350.chunk.js": "/news-project/static/js/570.98d66350.chunk.js",
+    "static/js/798.35df45bb.chunk.js": "/news-project/static/js/798.35df45bb.chunk.js",
+    "static/js/242.7d78ea9e.chunk.js": "/news-project/static/js/242.7d78ea9e.chunk.js",
     "static/js/820.88c3dc37.chunk.js": "/news-project/static/js/820.88c3dc37.chunk.js",
     "static/js/279.05636c5d.chunk.js": "/news-project/static/js/279.05636c5d.chunk.js",
+    "static/js/853.d9b2bd26.chunk.js": "/news-project/static/js/853.d9b2bd26.chunk.js",
     "static/media/not-article.png": "/news-project/static/media/not-article.cfb49bf258dfca1e6d8f.png",
     "index.html": "/news-project/index.html",
     "main.c3d5249d.css.map": "/news-project/static/css/main.c3d5249d.css.map",
-    "main.506a80dd.js.map": "/news-project/static/js/main.506a80dd.js.map",
-    "570.d16c3af9.chunk.js.map": "/news-project/static/js/570.d16c3af9.chunk.js.map",
-    "696.faad729f.chunk.js.map": "/news-project/static/js/696.faad729f.chunk.js.map",
-    "242.2d976449.chunk.js.map": "/news-project/static/js/242.2d976449.chunk.js.map",
+    "main.c34ee5fd.js.map": "/news-project/static/js/main.c34ee5fd.js.map",
+    "570.98d66350.chunk.js.map": "/news-project/static/js/570.98d66350.chunk.js.map",
+    "798.35df45bb.chunk.js.map": "/news-project/static/js/798.35df45bb.chunk.js.map",
+    "242.7d78ea9e.chunk.js.map": "/news-project/static/js/242.7d78ea9e.chunk.js.map",
     "820.88c3dc37.chunk.js.map": "/news-project/static/js/820.88c3dc37.chunk.js.map",
-    "279.05636c5d.chunk.js.map": "/news-project/static/js/279.05636c5d.chunk.js.map"
+    "279.05636c5d.chunk.js.map": "/news-project/static/js/279.05636c5d.chunk.js.map",
+    "853.d9b2bd26.chunk.js.map": "/news-project/static/js/853.d9b2bd26.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c3d5249d.css",
-    "static/js/main.506a80dd.js"
+    "static/js/main.c34ee5fd.js"
   ]
 }
