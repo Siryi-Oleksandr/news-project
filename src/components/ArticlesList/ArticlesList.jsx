@@ -17,17 +17,7 @@ function ArticlesList({ articles }) {
 }
 
 ArticlesList.propTypes = {
-  articles: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      url: PropTypes.string.isRequired,
-      abstract: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      section: PropTypes.string.isRequired,
-      published_date: PropTypes.string.isRequired,
-      media: PropTypes.array,
-    })
-  ).isRequired,
+  articles: PropTypes.array.isRequired,
 };
 
 export default ArticlesList;

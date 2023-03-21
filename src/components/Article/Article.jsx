@@ -20,7 +20,8 @@ import defaultImage from '../../images/not-article.png';
 const LS_KEY_FAVORITE_ARTICLES = 'favorite_articles';
 
 function Article({ article }) {
-  const { id, url, abstract, title, section, published_date, media } = article;
+  const { id, url, abstract, title, section, published_date, mediaUrl } =
+    article;
 
   // get locale storage context with methods
   const LS_Context = useContext(localeContext);
@@ -52,17 +53,10 @@ function Article({ article }) {
     addToReadArticle(article);
   };
 
-  const imageUrl =
-    media.length !== 0 && media
-      ? media[0]['media-metadata'][2 ?? 1 ?? 0]?.url ||
-        media[0]['media-metadata'][1 ?? 0]?.url ||
-        media[0]['media-metadata'][0]?.url
-      : defaultImage;
-
   return (
     <article>
       <ImgWrapper>
-        <img src={imageUrl} alt={title} />
+        <img src={mediaUrl ?? defaultImage} alt={title} />
         <ArtCategory>{section}</ArtCategory>
 
         {!isFavoriteArticle ? (
@@ -118,7 +112,7 @@ Article.propTypes = {
     title: PropTypes.string.isRequired,
     section: PropTypes.string.isRequired,
     published_date: PropTypes.string.isRequired,
-    media: PropTypes.array,
+    mediaUrl: PropTypes.string.isRequired,
   }).isRequired,
 };
 

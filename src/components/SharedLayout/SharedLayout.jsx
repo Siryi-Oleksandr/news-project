@@ -13,8 +13,13 @@ import {
 import Loader from 'components/Loader';
 import Footer from 'components/Footer';
 import Checkbox from 'components/Checkbox/Checkbox';
+import { useContext } from 'react';
+import localeContext from '../../context/localeContext';
 
 function SharedLayout({ toggleTheme }) {
+  const LS_Context = useContext(localeContext);
+  const { handleSubmit } = LS_Context;
+
   return (
     <>
       <Header>
@@ -24,8 +29,8 @@ function SharedLayout({ toggleTheme }) {
           <LinkStyled to="/favorite">Favorite</LinkStyled>
           <LinkStyled to="/read">Read</LinkStyled>
         </nav>
-        <Form>
-          <Input type="text" placeholder="Search" />
+        <Form onSubmit={handleSubmit}>
+          <Input type="text" name="query" placeholder="Search" />
           <SearchBtn type="submit">
             <FcSearch size="1.5em" />
           </SearchBtn>

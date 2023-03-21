@@ -11,7 +11,6 @@ function DateList() {
   const uniqueDate = handleDate(readArticles).sort((a, b) =>
     b.localeCompare(a)
   );
-  console.log(uniqueDate);
 
   return (
     <List>

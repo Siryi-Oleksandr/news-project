@@ -1,7 +1,8 @@
 import localeContext from './localeContext';
-import React from 'react';
+import React, { useState } from 'react';
 import useLocaleStorage from 'hooks/useLocaleStorage';
 import { addLeadingZero } from '../services/dataService';
+import { toast } from 'react-hot-toast';
 
 const LS_KEY_FAVORITE_ARTICLES = 'favorite_articles';
 const LS_KEY_READ_ARTICLES = 'read_articles';
@@ -15,6 +16,7 @@ function LocaleProvider({ children }) {
     LS_KEY_READ_ARTICLES,
     []
   );
+  const [query, setQuery] = useState(null);
 
   const addToFavoriteArticle = newArticle => {
     setFavoriteArticles(prevArticles => [...prevArticles, newArticle]);
@@ -42,6 +44,16 @@ function LocaleProvider({ children }) {
     );
   };
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (e.target.query.value === '') {
+      toast.success('Your search is empty');
+      return;
+    }
+    setQuery(e.target.query.value);
+    // e.target.reset();
+  };
+
   return (
     <localeContext.Provider
       value={{
@@ -50,6 +62,9 @@ function LocaleProvider({ children }) {
         deleteArticle,
         addToReadArticle,
         readArticles,
+        handleSubmit,
+        query,
+        setQuery,
       }}
     >
       {children}
