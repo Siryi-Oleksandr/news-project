@@ -53,8 +53,10 @@ function Article({ article }) {
   };
 
   const imageUrl =
-    media.length !== 0
-      ? media[0]['media-metadata'][2 ?? 1 ?? 0].url
+    media.length !== 0 && media
+      ? media[0]['media-metadata'][2 ?? 1 ?? 0]?.url ||
+        media[0]['media-metadata'][1 ?? 0]?.url ||
+        media[0]['media-metadata'][0]?.url
       : defaultImage;
 
   return (
