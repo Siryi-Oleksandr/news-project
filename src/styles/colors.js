@@ -5,6 +5,7 @@ export const whiteColor = '#ffffff';
 export const accentColor = '#4440f6';
 export const grayColor = '#a8a8a8'; // date
 export const footerColor = '#7a7a7a';
+export const categoryBtnColor = '#4440f7';
 
 // switcher colors
 //   const switcher-gray-moon: #5f6775;

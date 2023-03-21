@@ -44,7 +44,7 @@ export async function getSectionList() {
   try {
     const sectionList = await agent.get('/news/v3/content/section-list.json');
 
-    return sectionList?.data?.results;
+    return sectionList?.data?.results.splice(0, 10);
   } catch (error) {
     toast.error('Something went wrong 😥!');
     console.error(error);
@@ -54,6 +54,17 @@ export async function getSectionList() {
 // Searh by category
 // https://api.nytimes.com/svc/topstories/v2/{section}.json?api-key=yourkey
 // https://api.nytimes.com/svc/topstories/v2/technology.json?api-key=yourkey
+
+export async function getArticlesByCategory(category) {
+  try {
+    const articles = await agent.get(`/topstories/v2/${category}.json`);
+
+    return articles?.data?.results;
+  } catch (error) {
+    toast.error('Something went wrong 😥!');
+    console.error(error);
+  }
+}
 
 //  Search by date
 // https://api.nytimes.com/svc/archive/v1/{year}/{month}/{day}.json?api-key=yourkey
