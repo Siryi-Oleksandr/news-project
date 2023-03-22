@@ -10,6 +10,8 @@ export const OverleyModal = styled.div`
 
   overflow-y: scroll;
   border: 1px solid ${categoryBtnColor};
+  border-bottom-left-radius: 16px;
+  border-top-left-radius: 16px;
 
   background-color: ${whiteColor};
   z-index: 900;
