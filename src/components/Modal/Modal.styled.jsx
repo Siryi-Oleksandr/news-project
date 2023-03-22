@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { whiteColor, categoryBtnColor } from '../../styles/colors';
+import { categoryBtnColor } from '../../styles/colors';
 
 export const OverleyModal = styled.div`
   position: absolute;

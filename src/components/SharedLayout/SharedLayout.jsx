@@ -1,7 +1,7 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
+import { useContext } from 'react';
 import { Suspense } from 'react';
 import { FcSearch } from 'react-icons/fc';
-
 import {
   LinkStyled,
   Header,
@@ -13,12 +13,14 @@ import {
 import Loader from 'components/Loader';
 import Footer from 'components/Footer';
 import Checkbox from 'components/Checkbox/Checkbox';
-import { useContext } from 'react';
 import localeContext from '../../context/localeContext';
 
 function SharedLayout({ toggleTheme }) {
   const LS_Context = useContext(localeContext);
   const { handleSubmit } = LS_Context;
+  const { pathname } = useLocation();
+
+  const isHomePage = pathname === '/';
 
   return (
     <>
@@ -29,12 +31,16 @@ function SharedLayout({ toggleTheme }) {
           <LinkStyled to="/favorite">Favorite</LinkStyled>
           <LinkStyled to="/read">Read</LinkStyled>
         </nav>
-        <Form onSubmit={handleSubmit}>
-          <Input type="text" name="query" placeholder="Search" />
-          <SearchBtn type="submit">
-            <FcSearch size="1.5em" />
-          </SearchBtn>
-        </Form>
+
+        {isHomePage && (
+          <Form onSubmit={handleSubmit}>
+            <Input type="text" name="query" placeholder="Search" />
+            <SearchBtn type="submit">
+              <FcSearch size="1.5em" />
+            </SearchBtn>
+          </Form>
+        )}
+
         <Checkbox toggleTheme={toggleTheme} />
       </Header>
       <main>
