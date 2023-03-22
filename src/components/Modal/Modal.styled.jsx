@@ -13,7 +13,7 @@ export const OverleyModal = styled.div`
   border-bottom-left-radius: 16px;
   border-top-left-radius: 16px;
 
-  background-color: ${whiteColor};
+  background-color: ${({ theme }) => theme.backgroundColor};
   z-index: 900;
 `;
 

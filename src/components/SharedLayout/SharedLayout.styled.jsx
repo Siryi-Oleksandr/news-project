@@ -75,7 +75,7 @@ export const Input = styled.input`
   font-size: 14px;
   line-height: calc(24 / 14);
   letter-spacing: 0.02em;
-  color: ${textColor};
+  color: ${({ theme }) => theme.textColor};
   border: 1px solid ${({ theme }) => theme.borderColor};
   /* border-color: ${({ theme }) => theme.borderColor}; */
   border-radius: 20px;
@@ -89,6 +89,7 @@ export const Input = styled.input`
     font-size: 14px;
     line-height: 1.71;
     letter-spacing: 0.02em;
+    color: ${({ theme }) => theme.textColor};
   }
 `;
 

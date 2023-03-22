@@ -23,6 +23,7 @@ export const CategoryBtn = styled.button`
   cursor: pointer;
   color: ${categoryBtnColor};
   transition: all 250ms ease-in-out;
+  background-color: ${({ theme }) => theme.backgroundColor};
 
   &:hover,
   &:focus,
