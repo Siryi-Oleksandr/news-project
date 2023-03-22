@@ -63,5 +63,36 @@ export function handleResentArticles(articles) {
   return handleArticles;
 }
 
-// id, url, abstract, title, section, published_date, media
-// "2023-01-12T19:00:09+0000"
+export function handleArticlesByCategory(articles) {
+  const handleArticles = articles.map(
+    ({
+      abstract,
+      title,
+      byline,
+      section,
+      url,
+      published_date,
+      uri,
+      multimedia,
+    }) => {
+      const imageUrl =
+        multimedia && multimedia.length !== 0
+          ? multimedia[3]?.url ||
+            multimedia[2]?.url ||
+            multimedia[1]?.url ||
+            multimedia[0]?.url
+          : defaultImage;
+      return {
+        abstract,
+        id: uri ?? published_date,
+        title: title || byline,
+        url,
+        section,
+        published_date: published_date.split('T')[0].split('-').join('/'),
+        mediaUrl: imageUrl,
+      };
+    }
+  );
+
+  return handleArticles;
+}

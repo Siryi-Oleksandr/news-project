@@ -51,7 +51,7 @@ function LocaleProvider({ children }) {
       return;
     }
     setQuery(e.target.query.value);
-    // e.target.reset();
+    e.target.reset();
   };
 
   return (
