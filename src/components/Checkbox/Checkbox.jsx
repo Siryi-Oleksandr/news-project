@@ -5,17 +5,17 @@ import { TbSun } from 'react-icons/tb';
 import { CheckboxView, Input, Label } from './Checkbox.styled';
 
 function Checkbox({ toggleTheme }) {
-  const [dark, setDark] = useState(false);
+  const [darkTheme, setDarkTheme] = useState(true);
 
   const handleChange = evt => {
     const { checked } = evt.target;
-    setDark(checked);
+    setDarkTheme(checked);
     toggleTheme();
   };
 
   return (
     <Label>
-      <Input type="checkbox" checked={dark} onChange={handleChange} />
+      <Input type="checkbox" checked={darkTheme} onChange={handleChange} />
       <CheckboxView />
       <TbSun />
       <HiMoon />

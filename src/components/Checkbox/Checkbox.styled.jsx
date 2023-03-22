@@ -21,13 +21,13 @@ export const Label = styled.label`
 export const CheckboxView = styled.span`
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 10;
   display: inline-block;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: teal;
+  background-color: orangered;
 
   transition: transform 250ms ease-in-out, background-color 250ms ease-in-out;
 `;
@@ -47,7 +47,7 @@ export const Input = styled.input`
   overflow: hidden;
 
   &:checked + span {
-    transform: translateX(108%);
-    background-color: orangered;
+    transform: translateX(-108%);
+    background-color: teal;
   }
 `;
