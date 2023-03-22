@@ -10,6 +10,11 @@ export const List = styled.ul`
 
 export const CategoryBtn = styled.button`
   padding: 8px 24px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
   font-size: 12px;
   line-height: calc(16 / 12);
   text-align: center;
@@ -25,4 +30,8 @@ export const CategoryBtn = styled.button`
     background-color: ${categoryBtnColor};
     color: ${whiteColor};
   }
+`;
+
+export const ItemOther = styled.li`
+  position: relative;
 `;

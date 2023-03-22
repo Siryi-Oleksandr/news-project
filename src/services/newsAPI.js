@@ -43,7 +43,7 @@ export async function getSectionList() {
   // https://api.nytimes.com/svc/news/v3/content/section-list.json
   try {
     const sectionList = await agent.get('/news/v3/content/section-list.json');
-    return sectionList?.data?.results.splice(0, 10);
+    return sectionList?.data?.results;
   } catch (error) {
     toast.error('Something went wrong 😥!');
     console.error(error);
